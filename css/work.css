@@ -285,6 +285,7 @@ html {
   position: absolute;
   top: 2rem;
   right: calc(var(--header-side-width) + 2rem); /* サイドバーの幅 + 余白 */
+  z-index: 1200;
 }
 
 /* 右上に縦書きに目次 【relative】 */
@@ -297,8 +298,8 @@ html {
   bottom: 10rem;
   left: calc(var(--header-side-width) + 5rem);
   font-family: var(--f-serif);
-  font-size: 4rem;
-  color: black;
+  font-size: 2rem;
+  color: white;
   writing-mode: vertical-rl;
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.7);
 }
