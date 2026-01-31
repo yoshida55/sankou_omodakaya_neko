@@ -332,6 +332,10 @@ html {
   justify-content: space-between;
   align-items: center;
   gap: 8rem;
+  /*  Claude AI (Ctrl+Z で削除) */
+  /* CSSコードが不完全ですが、`.about_area`に`gap: 8rem`が適用されている場合、**2列のflex���イアウト（左側のメッセージ・猫画像と、右側の店内画像・成り立ち説明）の間のギャップ**です。 */
+  /*  */
+  /* つまり、左右のコンテンツ間の空白（横方向の間隔）を指定しています。 */
 }
 
 /* └ 左がメッセージと猫画像列 【縦flex】 */
