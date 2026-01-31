@@ -10,7 +10,6 @@ html {
 :root {
   --content-width: 129.6rem;
   --header-side-width: 20rem;
-  --space-hor: 2.4rem;
 
   /* 最大コンテンツ幅：*/
   --view: 129.6rem;
@@ -19,6 +18,14 @@ html {
   --space-vrt: 12rem; /* sm(スマホ)サイズ */
   /* 左右の余白：*/
   --space-hor: 2rem; /* sm(スマホ)サイズ */
+
+  /* 左右の余白：*/
+  --space-hor-pc: 8rem; /* (PC)サイズ */
+
+  /* セクション用幅 */
+  --section-top: 24rem;
+  --section-bottom: 24rem;
+  --section-side: auto;
 }
 
 /* debug  あとでどこで使われているかチェック*/
@@ -302,6 +309,55 @@ html {
   color: white;
   writing-mode: vertical-rl;
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.7);
+}
+
+/* ┌──────────────────────────────────────────────────────────────────────┐
+   │ おもだか屋について。画像。成り立ち　　　　　　　　　　　　　　　　　　　　　　|
+   │ 2列、左がメッセージと猫画像・右店内画像と成り立ち説明【flex】          |                      │
+   └──────────────────────────────────────────────────────────────────────┘ */
+.container-sec {
+  /* 計算１００％マイナス、左右の余白×2 */
+  width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
+  height: 40rem;
+  margin-top: var(--section-top);
+  margin-bottom: var(--section-bottom);
+  margin-left: var(--space-hor-pc);
+  margin-right: calc(var(--space-hor-pc) - var(--header-side-width));
+  border: 0.5rem solid red;
+}
+
+/* 2列、左がメッセージと猫画像・右店内画像と成り立ち説明【flex】 */
+.about_area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8rem;
+}
+
+/* └ 左がメッセージと猫画像列 【縦flex】 */
+.left_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.left_msg {
+  writing-mode: vertical-rl;
+}
+.left_cat_img {
+}
+
+/* └ 右が店内画像と成り立ち説明列 【縦flex】 */
+.right_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.right_store_img {
+}
+.store_msg_text {
 }
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
