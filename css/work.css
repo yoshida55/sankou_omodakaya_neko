@@ -1,20 +1,24 @@
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 共通                                         │
    │ コンテンツ幅、右の固定メニューのサイズ                          │
-   │ レスポンシブ対応: スマホ→タブレット(768px〜)→PC(1025px〜)           │
+   │ レスポンシブ対応: スマホ→タブレット(76.8rem〜)→PC(102.5rem〜)           │
    └──────────────────────────────────────────────────────────────────────┘ */
 :root {
-  --content-width: 1296px;
+  --content-width: 129.6rem;
   --header-side-width: 20rem;
-  --space-hor: 24px;
+  --space-hor: 2.4rem;
 
   /* 最大コンテンツ幅：*/
-  --view: 1296px;
+  --view: 129.6rem;
 
   /* 上下の余白：*/
-  --space-vrt: 120px; /* sm(スマホ)サイズ */
+  --space-vrt: 12rem; /* sm(スマホ)サイズ */
   /* 左右の余白：*/
-  --space-hor: 20px; /* sm(スマホ)サイズ */
+  --space-hor: 2rem; /* sm(スマホ)サイズ */
 }
 
 /* debug  あとでどこで使われているかチェック*/
@@ -27,19 +31,19 @@
 }
 
 /* 各セクションに共通の上下余白をつける */
-/* 768px（tab）以上の切り替え：*/
-@media screen and (min-width: 768px) {
+/* 76.8rem（tab）以上の切り替え：*/
+@media screen and (min-width: 76.8rem) {
   :root {
-    --space-vrt: 160px; /* md の値 */
-    --space-hor: 40px; /* md の値 */
+    --space-vrt: 16rem; /* md の値 */
+    --space-hor: 4rem; /* md の値 */
   }
 }
 
-/* 1025px（pc）以上の切り替え：*/
-@media screen and (min-width: 1025px) {
+/* 102.5rem（pc）以上の切り替え：*/
+@media screen and (min-width: 102.5rem) {
   :root {
-    --space-vrt: 240px; /* lg の値  「お知らせ」等のセクションのコンテナマージン*/
-    --space-hor: 80px; /* lg の値 */
+    --space-vrt: 24rem; /* lg の値  「お知らせ」等のセクションのコンテナマージン*/
+    --space-hor: 8rem; /* lg の値 */
   }
 }
 /* ┌─────────────────────────────────────────┐
@@ -82,40 +86,27 @@
   height: 100vh;
   background-color: #fff;
   z-index: 100;
-  padding: 20px;
+  padding: 10rem 1.5rem;
   border: 0.5rem solid red;
 }
 
-/* fixedで右サイドにメニュー表示  */
-.side_menu {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10rem;
-  height: 100vh;
-  background-color: blue;
-}
-
-/* おもだか屋の猫のロゴ（縦長）・SNS 【flex】 */
+/* └ おもだか屋の猫のロゴ・説明のコンテナ 【flex】 */
 .omodakaya_container {
-  position: relative;
+  position: absolute;
 
-  top: 10rem;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 0.5rem solid green;
 }
 
 .omodakaya_logo {
-  padding: 5rem 2rem;
   width: 7.5rem;
-  height: 28.9rem;
+  height: auto; /* 固定値をやめて auto にする */
   margin-bottom: 1rem;
 }
 
@@ -126,10 +117,53 @@
   color: black;
 }
 
+/* └ SNSアイコンのコンテナ 【flex】 */
+.side_sns_container {
+  position: absolute;
+
+  bottom: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+}
+
+/* └ └ インスタグラムのコンテナ【flex】 */
+.sns_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.3rem;
+}
+
+.sns_img {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: 0.5rem;
+}
+
+.sns_name {
+  font-family: var(--f-en2);
+  font-size: 1.6rem;
+  color: black;
+}
+
+/* └ └ オンラインストアのコンテナ【flex】  */
+.onlinestore_container {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 /* ハンバーガーメニュー */
 .hamburger_menu {
   position: absolute;
-  top: 1.5rem;
+
   right: 50%;
   transform: translateX(50%);
   width: 4.5rem;
@@ -159,38 +193,113 @@
   top: 3.6rem;
 }
 
-/* --- レイアウト確認用（完成したら消す） --- */
-div,
-section,
-article,
-header,
-footer,
-nav,
-main {
-  outline: 1px solid red !important;
-}
-img,
-svg {
-  outline: 1px solid blue !important;
-  background-color: rgba(0, 0, 255, 0.1);
-}
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span,
-a,
-li {
-  outline: 1px solid limegreen !important;
-}
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ キービジュアル / ページタイトル                                      │
    │ トップ: スライド表示・縦書きキャッチコピー                           │
    │ 下層: .kv-second でシンプルなタイトル表示                            │
    └──────────────────────────────────────────────────────────────────────┘ */
+
+.mainVisual_area {
+  width: 100%;
+}
+
+/* 背景 */
+.bg_image {
+  position: relative;
+  height: 100vh;
+
+  width: calc(100% - var(--header-side-width));
+  height: 100vh;
+}
+/* スライドショーアニメーション */
+.slide {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  /*transition は、プロパティの値が変化したときに、
+  その変化をなめらかにアニメーションさせるためのプロパティです。*/
+  transition: opacity 1s ease-in-out;
+  /* 既存のスタイルに追加 */
+  transform-origin: center center; /* 中心から縮小 */
+}
+
+.slide1 {
+  animation: slideshow 20s infinite;
+  background-image: url("../img/kv1.webp");
+  background-size: cover;
+  background-position: center;
+  animation-delay: 0s;
+}
+
+.slide2 {
+  animation: slideshow 20s infinite;
+  background-image: url("../img/kv2.webp");
+  background-size: cover;
+  background-position: center;
+  animation-delay: 5s;
+}
+
+.slide3 {
+  animation: slideshow 20s infinite;
+  background-image: url("../img/kv3.webp");
+  background-size: cover;
+  background-position: center;
+  animation-delay: 10s;
+}
+
+.slide4 {
+  animation: slideshow 20s infinite;
+  background-image: url("../img/kv4.webp");
+  background-size: cover;
+  background-position: center;
+  animation-delay: 15s;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity: 1;
+    transform: scale(1.09); /* 最初は少し大きく */
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.05); /* 少し縮小 */
+  }
+  29% {
+    opacity: 0;
+    transform: scale(1); /* 元のサイズで消える */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* 右上に縦書きに目次 【relative】 */
+.page_container {
+  position: relative;
+  width: calc(100% - var(--header-side-width));
+}
+
+.page_nav {
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+}
+
+.page_title {
+  position: absolute;
+  bottom: 10rem;
+  left: 5rem;
+  font-family: var(--f-serif);
+  font-size: 4rem;
+  color: white;
+  writing-mode: vertical-rl;
+  text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.7);
+}
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 商品グリッド                                                         │

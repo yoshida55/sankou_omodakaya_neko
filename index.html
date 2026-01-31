@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Diary</title>
+    <title>おもだか屋作業用</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/work.css" />
@@ -18,23 +18,54 @@
         <span class="bar"></span>
       </div>
 
-      <!-- おもだか屋の猫のロゴ・説明のコンテナ 【flex】-->
+      <!-- └ おもだか屋の猫のロゴ・説明のコンテナ 【flex】-->
       <div class="omodakaya_container">
         <!-- おもだか屋の猫のロゴ(画像) -->
         <img class="omodakaya_logo" src="img/logo_omodakaya-vrt.png" alt="おもだか屋の猫のロゴ" />
         <h2 class="omodakaya_description">中外陶園の直営店</h2>
+      </div>
 
-        <!-- flex SNSを囲むコンテナ 【flex】-->
-        <div class="side_menu_sns">
-          <!-- インスタグラムスタグラム -->
-          <div class="inst_name">Instagram</div>
-          <a href="https://www.facebook.com/omodakaya/" target="_blank" rel="noopener noreferrer"><img src="img/facebook-logo.png" alt="フェイスブックのロゴ" /></a>
+      <!--└ SNSアイコンのコンテナ 【flex】-->
+      <div class="side_sns_container">
+        <!-- └ └ インスタグラムスタグラムのコンテナ【flex】 -->
+        <div class="sns_container">
+          <a href="#">
+            <img class="sns_img" src="img/sns_instagram.svg" alt="インスタグラムのロゴ" />
+          </a>
+          <div class="sns_name">Instagram</div>
         </div>
 
-        <!-- オンラインストア -->
-        <div class="onlinestore_name">online Store</div>
-        <a href="#" target="_blank" rel="noopener noreferrer"><img src="img/instagram-logo.png" alt="インスタグラムのロゴ" /></a>
+        <!-- └ └ オンラインストアのコンテナ【flex】 -->
+        <div class="onlinestore_container">
+          <a href="#">
+            <img class="sns_img" src="img/icon_shop.svg" alt="オンラインストアのロゴ" />
+          </a>
+          <div class="sns_name">online Store</div>
+        </div>
       </div>
     </header>
+    <!-- ===============================================
+     メインビジュアル / ページタイトル
+     トップ: スライド表示・縦書きキャッチコピー 
+     =============================================== -->
+    <section id="mainVisual_area">
+      <!-- 画面のスライドショー -->
+      <div class="bg_image">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <div class="slide slide4"></div>
+      </div>
+      <!-- 右上に縦書きに目次 【relative】-->
+      <nav class="page_container">
+        <ul class="page_nav">
+          <li><a class="page_title" href="#">おもだか屋について</a></li>
+          <li><a class="page_title" href="#">今週のひと品</a></li>
+          <li><a class="page_title" href="#">お知らせ</a></li>
+          <li><a class="page_title" href="#">アクセス</a></li>
+          <li><a class="page_title" href="#">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </section>
   </body>
 </html>
