@@ -121,7 +121,7 @@ html {
 .side_sns_container {
   position: absolute;
 
-  bottom: 10rem;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
 
@@ -139,6 +139,7 @@ html {
   align-items: center;
   margin-bottom: 1rem;
   gap: 0.3rem;
+  cursor: pointer;
 }
 
 .sns_img {
@@ -154,7 +155,7 @@ html {
 }
 
 /* └ └ オンラインストアのコンテナ【flex】  */
-.onlinestore_container {
+.onlineStore_container {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -163,7 +164,7 @@ html {
 /* ハンバーガーメニュー */
 .hamburger_menu {
   position: absolute;
-
+  top: 3rem;
   right: 50%;
   transform: translateX(50%);
   width: 4.5rem;
@@ -194,7 +195,7 @@ html {
 }
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
-   │ キービジュアル / ページタイトル                                      │
+   │ メインビジュアル / ページタイトル                                      │
    │ トップ: スライド表示・縦書きキャッチコピー                           │
    │ 下層: .kv-second でシンプルなタイトル表示                            │
    └──────────────────────────────────────────────────────────────────────┘ */
@@ -275,36 +276,29 @@ html {
   }
 }
 
-.mainVisual_area {
-  overflow: hidden;
-  width: calc(100% - var(--header-side-width));
+#mainVisual_area {
   height: 100vh;
+  position: relative;
+}
+
+.page_container {
+  position: absolute;
+  top: 2rem;
+  right: calc(var(--header-side-width) + 2rem); /* サイドバーの幅 + 余白 */
 }
 
 /* 右上に縦書きに目次 【relative】 */
-.page_container {
-  position: relative;
-  width: calc(100% - var(--header-side-width));
-
-  border: 2rem solid rgb(38, 0, 255);
-}
-
 .page_nav {
-  position: absolute;
-  top: 2rem;
-  right: 5rem;
-  transform: translateX(-50%);
   display: flex;
   gap: 1rem;
-  border: 0.5rem solid rgb(0, 255, 0);
 }
 
 .page_title {
   bottom: 10rem;
-  left: 5rem;
+  left: calc(var(--header-side-width) + 5rem);
   font-family: var(--f-serif);
   font-size: 4rem;
-  color: white;
+  color: black;
   writing-mode: vertical-rl;
   text-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.7);
 }
@@ -362,3 +356,8 @@ html {
    │ ロゴ・ナビゲーション・コピーライト・バナーリンク                     │
    │ PC: 横並び / スマホ: 縦並び                                          │
    └──────────────────────────────────────────────────────────────────────┘ */
+@media screen and (max-width: 699.98px) {
+  .omodakaya_description {
+    display: none;
+  }
+}
