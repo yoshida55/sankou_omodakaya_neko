@@ -367,6 +367,36 @@ html {
   display: flex;
   flex-direction: column;
   gap: 6rem;
+  overflow: hidden; /* ここに追加：中身の画像が拡大しても、この枠からはみ出さないようにする */
+
+  border: 0.5rem solid red;
+}
+
+.store_img {
+  width: 100%;
+  height: auto;
+}
+
+.store_img.animate {
+  animation: slideshow 3s forwards;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity: 1;
+    transform: scale(1.1); /* 最初は少し大きく */
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.05); /* 少し縮小 */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
