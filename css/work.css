@@ -36,6 +36,15 @@
   --f-en2: "garamond-premier-pro-caption", "Noto Serif JP", serif;
 }
 
+body {
+  font-size: 1.6rem;
+  line-height: 1.75;
+  color: #070606;
+  background-color: #ffffff;
+  font-family: var(--f-sans);
+  overflow-x: hidden; /* 横スクロールバーを非表示にする */
+}
+
 /* 各セクションに共通の上下余白をつける */
 /* 76.8rem（tab）以上の切り替え：*/
 @media screen and (min-width: 76.8rem) {
@@ -318,23 +327,24 @@
   font-family: var(--f-serif);
   /* 計算１００％マイナス、左右の余白×2 */
   width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
-  margin-top: var(--section-top);
-  margin-bottom: var(--section-bottom);
-  margin-left: var(--space-hor-pc);
-  margin-right: calc(var(--space-hor-pc) - var(--header-side-width));
 }
 
 /* 2列、左がメッセージと猫画像・右店内画像と成り立ち説明【flex】 */
 .about_area {
   display: flex;
+  margin-top: var(--section-top);
+  margin-bottom: var(--section-bottom);
+  margin-left: var(--space-hor-pc);
+  margin-right: calc(var(--space-hor-pc));
   justify-content: space-between;
   align-items: flex-end;
-  height: 55rem;
-  gap: 8rem;
+  height: 60rem;
+  gap: 10rem;
 }
 
 /* └ 左がメッセージと猫画像列 【縦flex】 */
 .left_container {
+  flex: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -360,6 +370,7 @@
 
 /* 左下の猫 */
 .left_cat_img {
+  width: 100%;
   margin-top: auto;
 }
 /* 左下の猫 */
@@ -371,6 +382,7 @@
 
 /* └ 右が店内画像と成り立ち説明列 【縦flex】 */
 .right_container {
+  flex: 4;
   display: flex;
   flex-direction: column;
   gap: 5rem;
@@ -404,11 +416,13 @@
 
 /* おもだか屋についてのリンクスタイル */
 .radius_link {
+  display: inline-block;
   font-size: 1.6rem;
   font-weight: bold;
   color: rgb(29, 29, 171);
   text-decoration: none;
   position: relative;
+  border: 0.5rem solid red;
 }
 
 .radius_link::after {
@@ -420,12 +434,11 @@
   align-items: center;
   line-height: 2rem;
 
-  top: -0.1rem;
+  top: 0.4rem;
   left: 16rem;
   height: 2rem;
   width: 4rem;
   background-color: rgb(52, 52, 207);
-  border: 0.5rem solid white;
   border-radius: 2rem;
 }
 
@@ -457,19 +470,101 @@
    └──────────────────────────────────────────────────────────────────────┘ */
 
 .weekly_area {
-  padding: 6rem 4rem; /* 👈ここ！ */
-  height: auto;
+  width: calc(100% - var(--header-side-width));
+  height: 50rem;
+  color: black;
 }
 
-.weekly_left {
+/* 商品と「今週のひと品」をつつむコンテナ  【flex　2つ】 */
+.weekly_container {
+  width: 100%;
   font-size: 2.4rem;
-  color: white;
+  display: flex;
+  align-items: center;
 }
 
+/* 左側の「今週のひと品」の商品情報 【flex　3列】 */
+.weekly_product {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 60%;
+  position: relative;
+}
+
+.weekly_product::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 45%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: 0.1rem;
+  background-color: rgb(231, 225, 225);
+}
+
+/* └ 日付 */
+.weekly_date {
+  margin-right: auto;
+  font-family: var(--f-serif);
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+/* └ 招き猫の画像 */
 .weekly_cat_img {
+  display: block;
+  margin: 0 auto;
   width: 30rem;
   height: 30rem;
+  object-fit: cover;
+  background-color: transparent;
 }
+
+/* └ 情報コンテナ */
+.weekly_product_info {
+  width: 100%;
+  margin-right: auto;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weekly_product_msg {
+  flex: 1;
+}
+
+.weekly_cat_explanation {
+  font-family: var(--f-serif);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.weekly_cat_size {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.radius_link::after:nth-child(2) {
+  display: inline-block;
+  left: auto;
+  right: 0;
+}
+/* 商品名とサイズ情報 */
+/* .weekly_product_info - 後でスタイル追加 */
+
+/* .weekly_cat_size - 後でスタイル追加 */
+
+/* └ 右側の縦書きタイトル【縦flex】 */
+/* .weekly_section_title - 後でスタイル追加 */
+
+/* .weekly_title_text - 後でスタイル追加 */
+
+/* .weekly_msg - 後でスタイル追加 */
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 商品カード                                                           │
