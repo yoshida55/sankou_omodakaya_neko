@@ -1,6 +1,5 @@
-html {
+/* html {
   font-size: 62.5%; /* 1rem = 10px */
-}
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 共通                                         │
@@ -217,6 +216,7 @@ html {
 
   width: calc(100% - var(--header-side-width));
   height: 100vh;
+  overflow: hidden;
 }
 /* スライドショーアニメーション */
 .slide {
@@ -318,12 +318,10 @@ html {
   font-family: var(--f-serif);
   /* 計算１００％マイナス、左右の余白×2 */
   width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
-  height: 48rem;
   margin-top: var(--section-top);
   margin-bottom: var(--section-bottom);
   margin-left: var(--space-hor-pc);
   margin-right: calc(var(--space-hor-pc) - var(--header-side-width));
-  border: 0.5rem solid red;
 }
 
 /* 2列、左がメッセージと猫画像・右店内画像と成り立ち説明【flex】 */
@@ -331,6 +329,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  height: 55rem;
   gap: 8rem;
 }
 
@@ -340,6 +339,7 @@ html {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  overflow: hidden;
 }
 
 .left_msg {
@@ -358,27 +358,75 @@ html {
   writing-mode: vertical-rl;
 }
 
+/* 左下の猫 */
 .left_cat_img {
   margin-top: auto;
+}
+/* 左下の猫 */
+.left_cat_img.animate {
+  animation: slideshow 3s forwards;
+  width: 100%;
+  height: auto;
 }
 
 /* └ 右が店内画像と成り立ち説明列 【縦flex】 */
 .right_container {
   display: flex;
   flex-direction: column;
-  gap: 6rem;
+  gap: 5rem;
   overflow: hidden; /* ここに追加：中身の画像が拡大しても、この枠からはみ出さないようにする */
-
-  border: 0.5rem solid red;
 }
 
+/* 右上の店の画像 */
 .store_img {
   width: 100%;
   height: auto;
 }
 
+/* 右上の店の画像 */
 .store_img.animate {
+  /* forwardsは一回だけinfiniteだと何度も繰り返す */
   animation: slideshow 3s forwards;
+}
+
+.store_msg {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: #333333;
+}
+
+.blue_Underline {
+  text-decoration: underline;
+  text-decoration-color: blue;
+  text-underline-offset: 0.2rem;
+  color: blue;
+}
+
+/* おもだか屋についてのリンクスタイル */
+.omodakaya_link {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: rgb(29, 29, 171);
+  text-decoration: none;
+  position: relative;
+}
+
+.omodakaya_link::after {
+  content: "→";
+  position: absolute;
+
+  color: white;
+  text-align: center;
+  align-items: center;
+  line-height: 2rem;
+
+  top: -0.1rem;
+  left: 16rem;
+  height: 2rem;
+  width: 4rem;
+  background-color: rgb(52, 52, 207);
+  border: 0.5rem solid white;
+  border-radius: 2rem;
 }
 
 @keyframes slideshow {
