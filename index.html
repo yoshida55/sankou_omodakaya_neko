@@ -91,15 +91,34 @@
           <!-- おもだか屋について -->
         </p>
 
-        <a href="#" class="omodakaya_link">おもだか屋について</a>
+        <a href="#" class="radius_link">おもだか屋について</a>
       </div>
     </section>
+
+    <!-- ===============================================
+     今週のひと品セクションの全体                                                        │
+   │ display: grid で格子状レイアウト                                     │
+   │ 列数: スマホ3列→タブレット4列→PC5列 
+     =============================================== -->
+    <section class="weekly_area">
+      <!-- 左側: 猫 -->
+      <div class="weekly_left">
+        <p class="weekly_date">2026.02.02～</p>
+        <img class="weekly_cat_img" src="img/白黒猫.png" alt="猫の画像" />
+        <div class="cat_container">
+          <!-- うちの招き猫(ぶち･子猫) -->
+          <p class="weekly_cat_explanation">うちの招き猫(ぶち･子猫)</p>
+          <div class="weekly_cat_size">H10×W8.5×D7.5cm／約170g(箱含)／陶器</div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===============================================
      商品グリッド                                                         │
    │ display: grid で格子状レイアウト                                     │
    │ 列数: スマホ3列→タブレット4列→PC5列 
      =============================================== -->
-    <section class="grid"></section>
+    <section class="weekly_area"></section>
 
     <!-- javaScript読み込み -->
     <script src="js/work.js"></script>
