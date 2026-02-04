@@ -8,7 +8,7 @@
    └──────────────────────────────────────────────────────────────────────┘ */
 :root {
   --content-width: 129.6rem;
-  --header-side-width: 20rem;
+  --header-side-width: 18rem;
 
   /* 最大コンテンツ幅：*/
   --view: 129.6rem;
@@ -19,7 +19,7 @@
   --space-hor: 2rem; /* sm(スマホ)サイズ */
 
   /* 左右の余白：*/
-  --space-hor-pc: 8rem; /* (PC)サイズ */
+  --space-hor-pc: 5rem; /* (PC)サイズ */
 
   /* セクション用幅 */
   --section-top: 24rem;
@@ -376,7 +376,7 @@ body {
 /* 左下の猫 */
 .left_cat_img.animate {
   animation: slideshow 3s forwards;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -386,6 +386,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  overflow: hidden;
 }
 
 /* 右上の店の画像 */
@@ -437,12 +438,12 @@ body {
 @keyframes slideshow {
   0% {
     opacity: 1;
-    transform: scale(1.1); /* 最初は少し大きく */
+    transform: scale(1.08); /* 最初は少し大きく */
   }
   5% {
     opacity: 1;
   }
-  25% {
+  20% {
     opacity: 1;
     transform: scale(1.05); /* 少し縮小 */
   }
@@ -456,43 +457,50 @@ body {
 }
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
-   │ 商品グリッド                                                         │
+   │ 今週の一品（まねきねこ）flex 2                                                         │
    │ display: grid で格子状レイアウト                                     │
-   │ 列数: スマホ3列→タブレット4列→PC5列                                 │
+   │                                  │
    └──────────────────────────────────────────────────────────────────────┘ */
 
 .weekly_area {
   width: calc(100% - var(--header-side-width));
-  height: 50rem;
+  height: 45rem;
   color: black;
 }
 
 /* 商品と「今週のひと品」をつつむコンテナ  【flex　2つ】 */
 .weekly_container {
   width: 100%;
+  height: 100%;
   font-size: 2.4rem;
+  padding: 2rem;
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  border: 0.1rem solid rgb(231, 225, 225);
 }
 
-/* 左側の「今週のひと品」の商品情報 【flex　3列】 */
+/* 左側の「今週のひと品」の商品情報(うちの招き猫) 【flex　3列】 */
 .weekly_product {
-  padding-top: 2rem;
+  flex: 3.2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  width: 60%;
+  justify-content: space-between;
+
+  gap: 1rem;
+  height: auto;
   position: relative;
+  width: 100%;
 }
 
+/* 中央の縦線 */
 .weekly_product::after {
   content: "";
   position: absolute;
   right: 0;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
-  height: 80%;
+  height: 100%;
   width: 0.1rem;
   background-color: rgb(231, 225, 225);
 }
@@ -510,22 +518,19 @@ body {
 .weekly_cat_img {
   display: block;
   margin: 0 auto;
-  width: 30rem;
-  height: 30rem;
+  width: 28.6rem;
+  height: 28.6rem;
   object-fit: cover;
   background-color: transparent;
 }
 
-/* └ 情報コンテナ */
+/* 左側「うちの招き猫(ぶち･子猫)」と、「詳しく見る」【flex】 */
 .weekly_product_info {
   width: 100%;
-  margin-right: auto;
   height: 10rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
-
-  border: 0.5rem solid red;
 }
 
 .weekly_product_msg {
@@ -534,34 +539,40 @@ body {
 
 .weekly_cat_explanation {
   font-family: var(--f-serif);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
 .weekly_cat_size {
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
-/* 「今週のひと品」と、「今週の一品リンク」とをつつむ[] */
+.weekly_apace {
+  margin-right: 2rem;
+}
+
+/* 「今週のひと品」と、「今週の一品リンク」とをつつむ[flex 2 行] */
 .weekly_info_container {
-  text-align: center;
+  flex: 2.1;
+  /* padding-top: 2rem; */
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
 }
 
-.weekly_info
+.weekly_info {
+  height: 100%;
+}
 
-
+/* 今週のひと品と毎週、スタッフの横フレックス ２列 */
 .weekly_header {
   display: flex;
-
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  margin-bottom: 4rem;
-  border: 0.5rem solid red;
 }
 
 .weekly_title {
@@ -577,23 +588,54 @@ body {
   color: black;
 }
 
-/* 商品名とサイズ情報 */
-/* .weekly_product_info - 後でスタイル追加 */
+/* ┌─────────────────────────────────────────┐
+   │ 商品グリッド                                                         │
+   │ display: grid で格子状レイアウト                                     │
+   │ 列数: スマホ3列→タブレット4列→PC5列                         │
+   └─────────────────────────────────────────┘ */
 
-/* .weekly_cat_size - 後でスタイル追加 */
+.past_area {
+  width: calc(100% - var(--header-side-width));
+  /* あとでautoに変更 */
+  height: 70rem;
+}
 
-/* └ 右側の縦書きタイトル【縦flex】 */
-/* .weekly_section_title - 後でスタイル追加 */
+.product_grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  height: auto;
+  border: 0.1rem solid rgb(231, 225, 225);
+}
 
-/* .weekly_title_text - 後でスタイル追加 */
+/* 商品一覧  【grid 3列】*/
+.product_card {
+  text-align: center;
+  align-items: center;
+  border: 0.1rem solid rgb(231, 225, 225);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1px;
+  height: auto;
+}
 
-/* .weekly_msg - 後でスタイル追加 */
+.product_num {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
 
-/* ┌──────────────────────────────────────────────────────────────────────┐
-   │ 商品カード                                                           │
-   │ 日付・画像・商品名・サイズ情報で構成                                 │
-   │ ホバー時: 背景色変化 + 画像1.1倍ズーム                               │
-   └──────────────────────────────────────────────────────────────────────┘ */
+.past_img {
+  height: 9rem;
+  width: 9rem;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.product_info {
+  font-size: 0.7rem;
+}
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 今週のひと品セクション                                               │
