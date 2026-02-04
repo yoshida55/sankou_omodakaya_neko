@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <!-- 背景 -->
+  <rect width="700" height="500" fill="#fafafa"/>
+
+  <!-- タイトル -->
+  <text x="350" y="35" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">overflow: hidden がある時の配置方法</text>
+
+  <!-- NG: absolute -->
+  <rect x="20" y="60" width="320" height="200" fill="#ffebee" stroke="#e53935" stroke-width="2" rx="10"/>
+  <text x="180" y="90" text-anchor="middle" font-size="18" font-weight="bold" fill="#e53935">NG: position: absolute</text>
+
+  <!-- 親要素 -->
+  <rect x="40" y="110" width="200" height="60" fill="#fff" stroke="#999" stroke-width="1" rx="5"/>
+  <text x="50" y="130" font-size="11" fill="#666">親 (overflow: hidden)</text>
+  <rect x="50" y="140" width="100" height="25" fill="#9575cd" rx="3"/>
+  <text x="100" y="157" text-anchor="middle" font-size="11" fill="white">テキスト</text>
+
+  <!-- はみ出た矢印（切れる） -->
+  <rect x="220" y="140" width="40" height="25" fill="#ccc" rx="12" stroke="#e53935" stroke-dasharray="4"/>
+  <text x="240" y="157" text-anchor="middle" font-size="12" fill="#999">→</text>
+  <line x1="240" y1="130" x2="240" y2="125" stroke="#e53935" stroke-width="2"/>
+  <text x="240" y="120" text-anchor="middle" font-size="10" fill="#e53935">切れる!</text>
+
+  <!-- 説明 -->
+  <text x="40" y="195" font-size="12" fill="#333">子要素が親の外に飛び出す</text>
+  <text x="40" y="215" font-size="12" fill="#333">→ overflow: hidden で見えなくなる</text>
+  <text x="40" y="245" font-size="12" font-weight="bold" fill="#e53935">使用NG: 親にoverflow:hiddenがある時</text>
+
+  <!-- OK: flexbox -->
+  <rect x="360" y="60" width="320" height="200" fill="#e8f5e9" stroke="#43a047" stroke-width="2" rx="10"/>
+  <text x="520" y="90" text-anchor="middle" font-size="18" font-weight="bold" fill="#43a047">OK: flexbox (inline-flex)</text>
+
+  <!-- 親要素 -->
+  <rect x="380" y="110" width="280" height="60" fill="#fff" stroke="#999" stroke-width="1" rx="5"/>
+  <text x="390" y="130" font-size="11" fill="#666">親 (overflow: hidden)</text>
+  <rect x="390" y="140" width="100" height="25" fill="#9575cd" rx="3"/>
+  <text x="440" y="157" text-anchor="middle" font-size="11" fill="white">テキスト</text>
+
+  <!-- gap -->
+  <text x="500" y="157" font-size="9" fill="#999">gap</text>
+
+  <!-- 矢印（収まる） -->
+  <rect x="520" y="140" width="40" height="25" fill="#3f51b5" rx="12"/>
+  <text x="540" y="157" text-anchor="middle" font-size="12" fill="white">→</text>
+  <line x1="540" y1="130" x2="540" y2="125" stroke="#43a047" stroke-width="2"/>
+  <text x="540" y="118" text-anchor="middle" font-size="10" fill="#43a047">見える!</text>
+
+  <!-- 説明 -->
+  <text x="380" y="195" font-size="12" fill="#333">子要素が親の中に並ぶ</text>
+  <text x="380" y="215" font-size="12" fill="#333">→ overflow: hidden の影響を受けない</text>
+  <text x="380" y="245" font-size="12" font-weight="bold" fill="#43a047">使用OK: どの場面でも安全</text>
+
+  <!-- 区切り線 -->
+  <line x1="20" y1="280" x2="680" y2="280" stroke="#ddd" stroke-width="2"/>
+
+  <!-- inline-flex の説明 -->
+  <text x="350" y="310" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">inline-flex = inline + flex</text>
+
+  <!-- 表 -->
+  <rect x="100" y="330" width="500" height="150" fill="#fff" stroke="#ddd" rx="5"/>
+
+  <!-- ヘッダー -->
+  <rect x="100" y="330" width="500" height="30" fill="#e3f2fd" rx="5"/>
+  <text x="200" y="350" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">display</text>
+  <text x="350" y="350" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">外側の振る舞い</text>
+  <text x="500" y="350" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">内側(子の配置)</text>
+
+  <!-- 行1: block -->
+  <line x1="100" y1="360" x2="600" y2="360" stroke="#eee"/>
+  <text x="200" y="380" text-anchor="middle" font-size="12" fill="#333">block</text>
+  <text x="350" y="380" text-anchor="middle" font-size="12" fill="#333">改行される(幅いっぱい)</text>
+  <text x="500" y="380" text-anchor="middle" font-size="12" fill="#999">通常</text>
+
+  <!-- 行2: flex -->
+  <line x1="100" y1="390" x2="600" y2="390" stroke="#eee"/>
+  <text x="200" y="410" text-anchor="middle" font-size="12" fill="#333">flex</text>
+  <text x="350" y="410" text-anchor="middle" font-size="12" fill="#333">改行される(幅いっぱい)</text>
+  <text x="500" y="410" text-anchor="middle" font-size="12" fill="#43a047" font-weight="bold">flex配置</text>
+
+  <!-- 行3: inline -->
+  <line x1="100" y1="420" x2="600" y2="420" stroke="#eee"/>
+  <text x="200" y="440" text-anchor="middle" font-size="12" fill="#333">inline</text>
+  <text x="350" y="440" text-anchor="middle" font-size="12" fill="#333">横に並ぶ(中身の幅)</text>
+  <text x="500" y="440" text-anchor="middle" font-size="12" fill="#999">通常</text>
+
+  <!-- 行4: inline-flex -->
+  <line x1="100" y1="450" x2="600" y2="450" stroke="#eee"/>
+  <rect x="100" y="450" width="500" height="30" fill="#fff9c4"/>
+  <text x="200" y="470" text-anchor="middle" font-size="12" fill="#f57f17" font-weight="bold">inline-flex</text>
+  <text x="350" y="470" text-anchor="middle" font-size="12" fill="#333">横に並ぶ(中身の幅)</text>
+  <text x="500" y="470" text-anchor="middle" font-size="12" fill="#43a047" font-weight="bold">flex配置</text>
+
+  <!-- 縦線 -->
+  <line x1="280" y1="330" x2="280" y2="480" stroke="#ddd"/>
+  <line x1="420" y1="330" x2="420" y2="480" stroke="#ddd"/>
+</svg>

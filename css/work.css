@@ -386,7 +386,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  overflow: hidden; /* ここに追加：中身の画像が拡大しても、この枠からはみ出さないようにする */
 }
 
 /* 右上の店の画像 */
@@ -416,28 +415,21 @@ body {
 
 /* おもだか屋についてのリンクスタイル */
 .radius_link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
   font-size: 1.6rem;
-  font-weight: bold;
-  color: rgb(29, 29, 171);
-  text-decoration: none;
-  position: relative;
-  border: 0.5rem solid red;
 }
 
 .radius_link::after {
   content: "→";
-  position: absolute;
-
-  color: white;
-  text-align: center;
+  top: 1.5rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  line-height: 2rem;
-
-  top: 0.4rem;
-  left: 16rem;
   height: 2rem;
   width: 4rem;
+  color: white;
   background-color: rgb(52, 52, 207);
   border-radius: 2rem;
 }
@@ -531,7 +523,9 @@ body {
   height: 10rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+
+  border: 0.5rem solid red;
 }
 
 .weekly_product_msg {
@@ -546,14 +540,43 @@ body {
 
 .weekly_cat_size {
   font-size: 1.4rem;
-  margin-bottom: 2rem;
 }
 
-.radius_link::after:nth-child(2) {
-  display: inline-block;
-  left: auto;
-  right: 0;
+/* 「今週のひと品」と、「今週の一品リンク」とをつつむ[] */
+.weekly_info_container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
+
+.weekly_info
+
+
+.weekly_header {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 4rem;
+  border: 0.5rem solid red;
+}
+
+.weekly_title {
+  display: block;
+  writing-mode: vertical-rl;
+  font-family: var(--f-serif);
+  font-size: 2.4rem;
+  color: black;
+}
+.weekly_intro {
+  writing-mode: vertical-rl;
+  font-size: 1.6rem;
+  color: black;
+}
+
 /* 商品名とサイズ情報 */
 /* .weekly_product_info - 後でスタイル追加 */
 
