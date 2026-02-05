@@ -19,7 +19,7 @@
   --space-hor: 2rem; /* sm(スマホ)サイズ */
 
   /* 左右の余白：*/
-  --space-hor-pc: 5rem; /* (PC)サイズ */
+  --space-hor-pc: 4rem; /* (PC)サイズ */
 
   /* セクション用幅 */
   --section-top: 24rem;
@@ -340,6 +340,7 @@ body {
   align-items: flex-end;
   height: 60rem;
   gap: 10rem;
+  border: 0.5rem solid red;
 }
 
 /* └ 左がメッセージと猫画像列 【縦flex】 */
@@ -350,6 +351,7 @@ body {
   align-items: center;
   height: 100%;
   overflow: hidden;
+  border: 0.5rem solid red;
 }
 
 .left_msg {
@@ -357,6 +359,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  border: 0.5rem solid red;
 }
 
 .left_msg_line1 {
@@ -657,15 +660,20 @@ body {
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
+  border: 0.5rem solid red;
 }
 
 /*  タイトルと説明のコンテナ【flex 2列】 */
 .news_title_container {
   flex: 1.5;
+
+  padding-right: 2rem;
   display: flex;
-  justify-content: left;
-  gap: 2rem;
+  text-align: right;
+  justify-content: flex-end;
   align-items: flex-start;
+
+  border: 0.5rem solid red;
 }
 
 .news_title {
@@ -681,6 +689,7 @@ body {
   flex: 6;
   display: flex;
   flex-direction: column;
+  padding-left: 5rem;
 
   gap: 2rem;
 }
@@ -725,16 +734,76 @@ body {
   justify-content: center;
 }
 
+/* もっと見る　セクション一番下 */
+.news_link_container {
+  margin-top: 2rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 0.7rem;
+}
+
+.news_link_msg {
+  height: 3rem;
+  width: auto;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(10, 3, 58);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ホバーしたら下線がつく */
+.news_link_msg:hover {
+  text-decoration: underline;
+}
+
+.news_link {
+  display: block;
+  height: 1.5rem;
+  width: 3.5rem;
+
+  color: white;
+  background-color: rgb(60, 40, 189);
+  border-radius: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news_link:hover {
+  animation: arrowFade 2s ease-out;
+}
+
+@keyframes arrowFade {
+  0% {
+    color: inherit;
+  }
+  5% {
+    color: transparent;
+  } /* すぐ消える */
+  100% {
+    color: inherit;
+  }
+}
+
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 店舗情報 / アクセス                                                  │
    │ 店舗外観・営業情報（dl形式）・地図・アクセス方法                     │
    │ ギャラリー: 横スクロールアニメーション                               │
    └──────────────────────────────────────────────────────────────────────┘ */
-
+.store_bottom_img {
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--section-bottom);
+}
 /* ┌──────────────────────────────────────────────────────────────────────┐
-   │ ボタン / リンク                                                      │
-   │ .btn-link: テキスト + 矢印アイコン                                   │
-   │ ホバー時: 下線表示 + 矢印アニメーション                              │
+   │ アクセス情報                                                  │                              │
    └──────────────────────────────────────────────────────────────────────┘ */
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
