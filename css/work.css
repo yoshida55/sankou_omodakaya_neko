@@ -21,6 +21,9 @@
   /* 左右の余白：*/
   --space-hor-pc: 4rem; /* (PC)サイズ */
 
+  /* 左右の余白：*/
+  --space-hor-pc-right: 5rem; /* (PC)サイズ */
+
   /* セクション用幅 */
   --section-top: 24rem;
   --section-bottom: 24rem;
@@ -326,7 +329,7 @@ body {
 .container_sec {
   font-family: var(--f-serif);
   /* 計算１００％マイナス、左右の余白×2 */
-  width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
+  width: calc(100% - var(--space-hor-pc) - var(--space-hor-pc-right) - var(--header-side-width));
 }
 
 /* 2列、左がメッセージと猫画像・右店内画像と成り立ち説明【flex】 */
@@ -336,10 +339,10 @@ body {
   margin-top: var(--section-top);
   margin-bottom: var(--section-bottom);
   margin-left: var(--space-hor-pc);
-  margin-right: calc(var(--space-hor-pc));
+  margin-right: calc(var(--space-hor-pc-right));
   justify-content: space-between;
   align-items: flex-end;
-  height: auto;
+  height: 60rem;
   gap: 10rem;
 }
 
@@ -434,6 +437,15 @@ body {
   color: white;
   background-color: rgb(52, 52, 207);
   border-radius: 2rem;
+}
+
+.icon_newtab {
+  display: inline-block;
+  vertical-align: -0.2rem;
+
+  margin-left: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 @keyframes slideshow {
@@ -647,11 +659,11 @@ body {
 /* タイトル（お知らせ）と各お知ら一覧【flex 2列 】 */
 .news_area {
   width: auto;
-  width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
+  width: calc(100% - var(--space-hor-pc) - var(--space-hor-pc-right) - var(--header-side-width));
   margin-top: var(--section-top);
   margin-bottom: var(--section-bottom);
   margin-left: var(--space-hor-pc);
-  margin-right: var(--space-hor-pc);
+  margin-right: var(--space-hor-pc-right);
 
   font-family: var(--f-serif);
   display: flex;
@@ -800,34 +812,32 @@ body {
    └──────────────────────────────────────────────────────────────────────┘ */
 .access_area {
   width: auto;
-  width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
-  margin-bottom: var(--section-bottom);
+  width: calc(100% - var(--space-hor-pc) - var(--space-hor-pc-right) - var(--header-side-width));
+  margin-bottom: 5rem;
   margin-left: var(--space-hor-pc);
-  margin-right: var(--space-hor-pc);
-
-  height: 100rem; /* debug あとでautoに変更 */
+  margin-right: var(--space-hor-pc-right);
+  height: auto;
   font-family: var(--f-serif);
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 1rem;
 }
 
+/* h2「店舗情報」用 */
 .access_info {
-  flex: 0 0 auto; /* h2は内容に合わせた固定幅 */
+  flex: 2;
+  padding-right: 2.5em;
   writing-mode: vertical-rl;
-  margin-bottom: auto;
   font-size: 3rem;
 }
 
-/*  タイトルと説明のコンテナ【flex 2列】 */
-.access_access_info {
-  width: 100%;
-  color: black;
-  font-size: 3rem;
-
+/* 各行（TEL、住所等）用 ← 名前を正しく！ */
+.access_contact_info {
   display: flex;
-  align-content: center;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .access_info_title {
@@ -840,28 +850,62 @@ body {
   font-size: 1.4rem;
 }
 
-/* お知らせ一覧 【flex 5行】 */
+/* 住所等をまとめるコンテナ */
 .access_info_container {
   flex: 4;
-
-  text-align: left;
-  flex-direction: column;
-  padding-left: 5rem;
-
   display: flex;
-  gap: 12rem;
+  flex-direction: column;
+  gap: 4rem; /* 12remは大きすぎ */
 }
 
-/* お知らせ一覧 【flex 3行】 */
+/* 地図 */
 .access_map {
-  flex: 3;
-  padding-left: 5rem;
+  object-fit: contain;
+  flex: 4;
+  min-width: 0;
+}
+
+.google_link {
+  font-size: 1.4rem;
+  color: blue;
 }
 /* ┌──────────────────────────────────────────────────────────────────────┐
-   │ アニメーション / トランジション                                      │
-   │ ホバーフェード・画像ズーム・スクロールフェードイン                   │
-   │ 無限横スクロール・矢印アニメーション                                 │
+   │ 店舗情報　アクセス情報　　　　　　                                 │
    └──────────────────────────────────────────────────────────────────────┘ */
+.access_container {
+  width: auto;
+  width: calc(100% - var(--space-hor-pc) - var(--space-hor-pc-right) - var(--header-side-width));
+  margin-bottom: var(--section-bottom);
+  margin-left: var(--space-hor-pc);
+  margin-right: var(--space-hor-pc-right);
+  height: auto;
+  font-family: var(--f-serif);
+
+  display: flex;
+  gap: 1rem;
+  border: 0.5rem solid red;
+}
+
+.access_space {
+  flex: 1;
+}
+.access_list {
+  flex: 6;
+  position: relative;
+}
+.access_list::after {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  height: 0.1rem;
+  width: 72%;
+  background-color: rgb(197, 194, 194);
+  color: black;
+}
+
+li {
+  list-style: disc;
+}
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ ユーティリティクラス                                                 │

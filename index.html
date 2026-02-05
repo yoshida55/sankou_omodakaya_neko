@@ -284,35 +284,59 @@
     <!-- ===============================================
      店舗情報                         │ 
      =============================================== -->
-    <!-- 「店舗情報」と各お知ら一覧【flex 2列 】 -->
+    <!-- 店舗情報セクション【flex 3列: タイトル・詳細・地図】 -->
     <section class="access_area">
-      <!-- タイトルと詳細と地図【flex 3列】 -->
+      <!-- └ 店舗情報タイトル（縦書き） -->
       <h2 class="access_info">店舗情報</h2>
-      <!-- 店舗情報　住所・TEL・営業時間・休業日・マップ 【flex 5行】-->
+      <!-- └ 店舗詳細コンテナ【flex column 4行】 -->
       <div class="access_info_container">
-        <!-- 見出しと詳細 【flex 2列】-->
-        <div class="access_access_info">
+        <!-- └ └ TEL【flex 2列】 -->
+        <div class="access_contact_info">
           <p class="access_info_title">TEL</p>
-          <p class="access_info_detail">住所：愛知県瀬戸市朝日町43番地</p>
+          <p class="access_info_detail">0561-87-1700</p>
         </div>
-        <div class="access_access_info">
-          <p class="access_info_title">TEL</p>
-          <p class="access_info_detail">住所：愛知県瀬戸市朝日町43番地</p>
+        <!-- └ └ 住所【flex 2列】 -->
+        <div class="access_contact_info">
+          <p class="access_info_title">住所</p>
+          <p class="access_info_detail">
+            〒984-0802 <br />
+            宮城県仙台市
+          </p>
         </div>
-        <div class="access_access_info">
+        <!-- └ └ 営業時間【flex 2列】 -->
+        <div class="access_contact_info">
           <p class="access_info_title">営業時間</p>
           <p class="access_info_detail">10:00～18:00</p>
         </div>
-        <div class="access_access_info">
+        <!-- └ └ 休業日【flex 2列】 -->
+        <div class="access_contact_info">
           <p class="access_info_title">休業日</p>
-          <p class="access_info_detail">水曜日（祝日の場合は営業）</p>
+          <p class="access_info_detail">・水曜日（祝日の場合は営業）<br />・水曜日</p>
         </div>
+        <!-- └ └ Googleマップリンク -->
+        <a href="#" class="google_link">Google Maps<img class="icon_newtab" src="img/icon_newtab.svg" alt="" /></a>
       </div>
+      <!-- └ 地図画像 -->
       <img class="access_map" src="img/shop_map.jpg" alt="店舗の地図" />
     </section>
-    <!-- ===============================================
-     アクセス情報
-     =============================================== -->
+    <!-- ２段目【flex 2列: 店舗情報の枠確有り/枠のみ　アクセス情報のみ】 -->
+    <div class="access_container">
+      <!-- 店舗情報文のスペース -->
+      <div class="access_space"></div>
+      <!-- アクセス情報コンテナ【flex column 3行】 -->
+      <div class="access_list">
+        <ul class="access-train">
+          <li class="access_by">電車でお越しの方</li>
+          <li class="access_by_detail">
+            名鉄瀬戸線「尾張瀬戸駅」より徒歩10分 <br />
+            名鉄バス「中水野」バス停より徒歩3分
+          </li>
+        </ul>
+        <ul class="access-car"></ul>
+        <li class="access-parking"></li>
+      </ul>
+    </div>
+    <div class="access_detail"></div>
 
     <!-- javaScript読み込み -->
     <script src="js/work.js"></script>
