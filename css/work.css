@@ -332,15 +332,15 @@ body {
 /* 2列、左がメッセージと猫画像・右店内画像と成り立ち説明【flex】 */
 .about_area {
   display: flex;
+
   margin-top: var(--section-top);
   margin-bottom: var(--section-bottom);
   margin-left: var(--space-hor-pc);
   margin-right: calc(var(--space-hor-pc));
   justify-content: space-between;
   align-items: flex-end;
-  height: 60rem;
+  height: auto;
   gap: 10rem;
-  border: 0.5rem solid red;
 }
 
 /* └ 左がメッセージと猫画像列 【縦flex】 */
@@ -351,7 +351,6 @@ body {
   align-items: center;
   height: 100%;
   overflow: hidden;
-  border: 0.5rem solid red;
 }
 
 .left_msg {
@@ -359,7 +358,6 @@ body {
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  border: 0.5rem solid red;
 }
 
 .left_msg_line1 {
@@ -660,20 +658,15 @@ body {
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
-  border: 0.5rem solid red;
 }
 
 /*  タイトルと説明のコンテナ【flex 2列】 */
 .news_title_container {
   flex: 1.5;
-
-  padding-right: 2rem;
   display: flex;
   text-align: right;
   justify-content: flex-end;
   align-items: flex-start;
-
-  border: 0.5rem solid red;
 }
 
 .news_title {
@@ -805,7 +798,65 @@ body {
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ アクセス情報                                                  │                              │
    └──────────────────────────────────────────────────────────────────────┘ */
+.access_area {
+  width: auto;
+  width: calc(100% - var(--space-hor-pc) * 2 - var(--header-side-width));
+  margin-bottom: var(--section-bottom);
+  margin-left: var(--space-hor-pc);
+  margin-right: var(--space-hor-pc);
 
+  height: 100rem; /* debug あとでautoに変更 */
+  font-family: var(--f-serif);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.access_info {
+  flex: 0 0 auto; /* h2は内容に合わせた固定幅 */
+  writing-mode: vertical-rl;
+  margin-bottom: auto;
+  font-size: 3rem;
+}
+
+/*  タイトルと説明のコンテナ【flex 2列】 */
+.access_access_info {
+  width: 100%;
+  color: black;
+  font-size: 3rem;
+
+  display: flex;
+  align-content: center;
+}
+
+.access_info_title {
+  flex: 1;
+  font-size: 1.4rem;
+}
+
+.access_info_detail {
+  flex: 3;
+  font-size: 1.4rem;
+}
+
+/* お知らせ一覧 【flex 5行】 */
+.access_info_container {
+  flex: 4;
+
+  text-align: left;
+  flex-direction: column;
+  padding-left: 5rem;
+
+  display: flex;
+  gap: 12rem;
+}
+
+/* お知らせ一覧 【flex 3行】 */
+.access_map {
+  flex: 3;
+  padding-left: 5rem;
+}
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ アニメーション / トランジション                                      │
    │ ホバーフェード・画像ズーム・スクロールフェードイン                   │
@@ -822,7 +873,9 @@ body {
    │ フッター                                                             │
    │ ロゴ・ナビゲーション・コピーライト・バナーリンク                     │
    │ PC: 横並び / スマホ: 縦並び                                          │
+
    └──────────────────────────────────────────────────────────────────────┘ */
+
 @media screen and (max-width: 699.98px) {
   .omodakaya_description {
     display: none;
