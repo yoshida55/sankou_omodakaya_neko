@@ -823,7 +823,6 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  border: 0.5rem solid red;
 }
 
 /* └ h2「店舗情報」用 */
@@ -886,13 +885,11 @@ body {
 
   display: flex;
   gap: 1rem;
-  border: 0.5rem solid red;
 }
 
 /* └ 行の列前半部分のスペース */
 .access_space {
   flex: 2.7;
-  border: 0.5rem solid red;
 }
 /* └ 後半部分の徒歩１０分など記載部分 */
 .access_list {
@@ -945,13 +942,12 @@ li {
   width: calc(100% - var(--header-side-width));
   margin-bottom: var(--section-bottom);
   height: auto;
-  border: 0.5rem solid red;
   overflow: hidden;
 }
 
 .slide_track {
   display: flex;
-  animation: scroll 20s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .slide_track img {
@@ -961,12 +957,112 @@ li {
 }
 
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(calc(-3 * (100vw - var(--header-side-width)))); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-3 * (100vw - var(--header-side-width))));
+  }
 }
 
+/* ┌─────────────────────────────────────────┐
+   │ フッター　　                        │
+   └─────────────────────────────────────────┘ */
 
+.footer_area {
+  width: calc(100% - var(--space-hor-pc) - var(--space-hor-pc-right) - var(--header-side-width));
+  margin-bottom: 2rem;
+  margin-left: var(--space-hor-pc);
+  margin-right: var(--space-hor-pc-right);
 
+  display: flex;
+  flex-direction: column;
+
+  gap: 8rem;
+  align-items: flex-start;
+}
+
+.footer_container {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer_logo {
+  width: 33rem;
+  height: 8.8rem;
+  height: auto;
+}
+
+.footer_menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer_item {
+  gap: 1rem;
+  list-style: none;
+}
+
+.footer_link {
+  display: block;
+  font-size: 1.4rem;
+  color: grey;
+  width: auto;
+}
+
+.footer_inst_link {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.footer_company_nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer_company_item {
+  font-size: 1.2rem;
+  color: black;
+  list-style: none;
+  text-decoration: underline;
+}
+
+.footer_company_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_copyright {
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.footer_sponsor_container {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: rgb(224, 217, 217) 0.1rem solid;
+}
+
+.footer_sponsor_logo {
+  flex: 1;
+  min-width: 0; /* 画像が大きくてもflexで縮小される */
+  height: auto;
+  border-right: 0.1rem solid rgb(200, 200, 200); /* 縦線 */
+  padding: 1rem 2rem; /* 線との間隔 */
+}
+
+/* 最後のロゴには線を付けない */
+.footer_sponsor_logo:last-child {
+  border-right: none;
+}
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ フッター                                                             │
    │ ロゴ・ナビゲーション・コピーライト・バナーリンク                     │
