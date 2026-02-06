@@ -321,23 +321,39 @@
     </section>
     <!-- ２段目【flex 2列: 店舗情報の枠確有り/枠のみ　アクセス情報のみ】 -->
     <div class="access_container">
-      <!-- 店舗情報文のスペース -->
+      <!-- └ 店舗情報文のスペース -->
       <div class="access_space"></div>
-      <!-- アクセス情報コンテナ【flex column 3行】 -->
+      <!-- └ アクセス情報コンテナ【flex column 3行】 -->
       <div class="access_list">
-        <ul class="access-train">
-          <li class="access_by">電車でお越しの方</li>
-          <li class="access_by_detail">
-            名鉄瀬戸線「尾張瀬戸駅」より徒歩10分 <br />
-            名鉄バス「中水野」バス停より徒歩3分
-          </li>
-        </ul>
-        <ul class="access-car"></ul>
-        <li class="access-parking"></li>
-      </ul>
+        <!-- └ └ アクセス情報詳細　「車でお越し」「東名高速」【flex 列２】-->
+        <div class="access_row">
+          <p class="access_by">電車でお越しの方</p>
+          <p class="access_by_detail">名鉄 瀬戸線「尾張瀬戸駅」から徒歩8分</p>
+        </div>
+        <div class="access_row">
+          <p class="access_by">電車でお越しの方</p>
+          <p class="access_by_detail">名鉄 瀬戸線「尾張瀬戸駅」から徒歩8分</p>
+        </div>
+        <div class="access_row">
+          <p class="access_by">電車でお越しの方</p>
+          <p class="access_by_detail">名鉄 瀬戸線「尾張瀬戸駅」から徒歩8分<br />ああああ 瀬戸線「尾張瀬戸駅」から徒歩１０分</p>
+        </div>
+      </div>
     </div>
-    <div class="access_detail"></div>
-
+    <!-- ===============================================
+     スライドショー尾（画像が左からながれてくるようにする）   
+     =============================================== -->
+    <section class="slide_area">
+      <div class="slide_track">
+        <img src="img/photo1.jpg" />
+        <img src="img/photo2.jpg" />
+        <img src="img/photo3.jpg" />
+        <!-- 2セット目（同じ画像を繰り返す） -->
+        <img src="img/photo1.jpg" />
+        <img src="img/photo2.jpg" />
+        <img src="img/photo3.jpg" />
+      </div>
+    </section>
     <!-- javaScript読み込み -->
     <script src="js/work.js"></script>
   </body>

@@ -823,14 +823,23 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
+  border: 0.5rem solid red;
 }
 
-/* h2「店舗情報」用 */
+/* └ h2「店舗情報」用 */
 .access_info {
   flex: 2;
   padding-right: 2.5em;
   writing-mode: vertical-rl;
   font-size: 3rem;
+}
+
+/* └ 住所等をまとめるコンテナ */
+.access_info_container {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; /* 12remは大きすぎ */
 }
 
 /* 各行（TEL、住所等）用 ← 名前を正しく！ */
@@ -850,15 +859,7 @@ body {
   font-size: 1.4rem;
 }
 
-/* 住所等をまとめるコンテナ */
-.access_info_container {
-  flex: 4;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem; /* 12remは大きすぎ */
-}
-
-/* 地図 */
+/* └ 地図 */
 .access_map {
   object-fit: contain;
   flex: 4;
@@ -872,6 +873,8 @@ body {
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ 店舗情報　アクセス情報　　　　　　                                 │
    └──────────────────────────────────────────────────────────────────────┘ */
+
+/* アクセス情報  徒歩１０分など記載部分 　【flex 2列】*/
 .access_container {
   width: auto;
   width: calc(100% - var(--space-hor-pc) - var(--space-hor-pc-right) - var(--header-side-width));
@@ -886,13 +889,41 @@ body {
   border: 0.5rem solid red;
 }
 
+/* └ 行の列前半部分のスペース */
 .access_space {
-  flex: 1;
+  flex: 2.7;
+  border: 0.5rem solid red;
 }
+/* └ 後半部分の徒歩１０分など記載部分 */
 .access_list {
-  flex: 6;
-  position: relative;
+  flex: 8.3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
+
+.access_row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+/* └アクセス情報の実際の経路「～徒歩８分」など */
+.access_detail {
+  flex: 8;
+  padding-bottom: 0.1rem;
+}
+
+.access_by {
+  width: 15rem;
+  font-size: 1.4rem;
+}
+
+.access_by_detail {
+  flex: 1;
+  font-size: 1.4rem;
+}
+
+/* 店舗情報とアクセス情報の見出し線 --------------------------*/
 .access_list::after {
   content: "";
   position: absolute;
@@ -908,9 +939,7 @@ li {
 }
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
-   │ ユーティリティクラス                                                 │
-   │ .sp_only: スマホのみ表示 / .pc_only: PCのみ表示                      │
-   │ .spacer: グリッドの空白埋め用                                        │
+   │ スライドショー尾（画像が左からながれてくるようにする）                                                │
    └──────────────────────────────────────────────────────────────────────┘ */
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
