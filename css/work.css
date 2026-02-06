@@ -941,6 +941,31 @@ li {
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ スライドショー尾（画像が左からながれてくるようにする）                                                │
    └──────────────────────────────────────────────────────────────────────┘ */
+.slide_area {
+  width: calc(100% - var(--header-side-width));
+  margin-bottom: var(--section-bottom);
+  height: auto;
+  border: 0.5rem solid red;
+  overflow: hidden;
+}
+
+.slide_track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+.slide_track img {
+  width: calc(100vw - var(--header-side-width)); /* ← ここを変える */
+  flex-shrink: 0; /* 縮ませない！ */
+  object-fit: cover; /* 比率を保ってはみ出し切り */
+}
+
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-3 * (100vw - var(--header-side-width)))); }
+}
+
+
 
 /* ┌──────────────────────────────────────────────────────────────────────┐
    │ フッター                                                             │
