@@ -27,3 +27,11 @@ window.addEventListener("scroll", function () {
     manekiNekoImg.classList.add("animate");
   }
 });
+
+// ハンバーガーメニュークリック時にクラス（open）を付け外しする
+const hamburgerBtn = document.getElementById("hamburger_btn");
+
+hamburgerBtn.addEventListener("click", function () {
+  // ボタン自身に .open を付けて「×」にする
+  hamburgerBtn.classList.toggle("open");
+});
